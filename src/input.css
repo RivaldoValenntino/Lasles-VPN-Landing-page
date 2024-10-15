@@ -60,3 +60,13 @@
 .gradient-bg {
   background-image: linear-gradient(to right, #f8f8f8 100%, red);
 }
+
+svg {
+  color: #F8F8F8 !important;
+}
+
+@media (max-width: 1024px) { /* Untuk ukuran mobile */
+   .flex-none {
+      flex: 0 0 100%; /* Satu kartu per tampilan */
+    }
+}

@@ -31,16 +31,20 @@
           Lasles<span class="font-bold">VPN</span>
         </h1>
       </div>
-
+<!-- 
+      <a href="javascript:void(0)" class="absolute right-12" aria-label="Sign in">
+        <i class="text-2xl ph-fill ph-sign-in"></i>
+      </a> -->
       <span id="hamburger" @click="open = !open" class="absolute block cursor-pointer right-4 lg:hidden">
         <i :class="open ? 'ph ph-x' : 'ph ph-list'" class="text-3xl"></i>
       </span>
+    
 
-      <div x-cloak id="nav-wrapper" :class="{'max-h-[350px]': open, 'max-h-0': !open}"
+      <div x-cloak id="nav-wrapper" :class="{'max-h-[500px]': open, 'max-h-0': !open}"
         x-show="open || window.innerWidth >= 1024" x-transition:enter="transition-all ease-in-out duration-500"
-        x-transition:enter-start="opacity-0 max-h-0" x-transition:enter-end="opacity-100 max-h-[350px]"
+        x-transition:enter-start="opacity-0 max-h-0" x-transition:enter-end="opacity-100 max-h-[500px]"
         x-transition:leave="transition-all ease-in-out duration-500"
-        x-transition:leave-start="opacity-100 max-h-[350px]" x-transition:leave-end="opacity-0 max-h-0"
+        x-transition:leave-start="opacity-100 max-h-[500px]" x-transition:leave-end="opacity-0 max-h-0"
         class="absolute w-full overflow-hidden py-5 shadow-lg bg-white top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none z-[999] transition-all duration-500 ease-in-out lg:max-h-full lg:pl-24">
         <ul class="flex flex-col items-center justify-center w-full gap-8 lg:flex-row text-md">
           <li><a href="#" class="navlink">About</a></li>
@@ -48,6 +52,18 @@
           <li><a href="#" class="navlink">Pricing</a></li>
           <li><a href="#" class="navlink">Testimonials</a></li>
           <li><a href="#" class="navlink">Help</a></li>
+          <li class="flex lg:hidden">
+            <div class="flex flex-col gap-8">
+              <button class="text-lg font-semibold whitespace-nowrap" type="button">
+                Sign In
+              </button>
+              <button
+                class="px-12 py-2 text-lg font-semibold bg-transparent border rounded-full whitespace-nowrap border-merah text-merah"
+                type="button">
+                Sign Up
+              </button>
+          </div>
+          </li>
         </ul>
       </div>
 
@@ -527,8 +543,24 @@
         </div>
     </div>
 </section>
+  <!-- Newsletter Start -->
+  <section class="px-4">
+    <div class="flex flex-col items-center justify-between max-w-screen-xl px-4 py-4 mx-auto my-8 bg-white rounded-lg shadow-lg lg:flex-row">
+        <div class="flex flex-col gap-2 p-8 text-center lg:p-12 lg:text-left">
+            <h1 class="text-3xl font-bold sm:text-4xl">Subscribe Now for <br> Get Special Features!</h1>
+            <p class="text-base opacity-50 sm:text-lg text-thin">Let's subscribe with us and find the fun.</p>
+        </div>
+        <div class="p-4 lg:p-12">
+            <a href="#"
+                class="relative z-10 inline-flex items-center justify-center w-full px-8 py-3 text-lg font-bold text-white transition-all duration-200 bg-[#F53838] border-2 border-transparent sm:w-auto rounded-xl hover:bg-[#F82323] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 shadow-xl"
+                role="button" id="cta-btn">
+                Subscribe Now        
+            </a>
+        </div>
+    </div>
+</section>
 
-
+     <!-- Newsletter End -->
     <!-- Advertise End -->
     <!-- Footer  Start-->
     <footer class="bg-white">
