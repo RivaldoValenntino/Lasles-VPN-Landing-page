@@ -1,107 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <div x-data="{ activeIndex: 0, items: [] }" x-init="items = [
-    {
-        img: 'assets/avatar_1.png',
-        name: 'Viezh Robert',
-        location: 'Warsaw, Poland',
-        rating: 4.5,
-        desc: '“Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best”.'
-    },
-    {
-        img: 'assets/avatar_1.png',
-        name: 'Viezh Robert',
-        location: 'Warsaw, Poland',
-        rating: 4.5,
-        desc: '“Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best”.'
-    },
-    {
-        img: 'assets/avatar_1.png',
-        name: 'Viezh Robert',
-        location: 'Warsaw, Poland',
-        rating: 4.5,
-        desc: '“Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best”.'
-    },
-    {
-        img: 'assets/avatar_1.png',
-        name: 'Viezh Robert',
-        location: 'Warsaw, Poland',
-        rating: 4.5,
-        desc: '“Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best”.'
-    },
-    {
-        img: 'assets/avatar_1.png',
-        name: 'Viezh Robert',
-        location: 'Warsaw, Poland',
-        rating: 4.5,
-        desc: '“Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best”.'
-    },
-    {
-        img: 'assets/avatar_1.png',
-        name: 'Viezh Robert',
-        location: 'Warsaw, Poland',
-        rating: 4.5,
-        desc: '“Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best”.'
-    },
-]" class="max-w-screen-xl mx-auto lg:py-16">
-    <h2 class="mb-4 text-3xl font-extrabold leading-tight tracking-tight text-center text-gray-900 md:text-4xl">
-        Trusted by Thousands of <br> Happy Customers
-    </h2>
-    <p class="font-thin text-center opacity-50 sm:text-xl/relaxed">
-        These are the stories of our customers who have joined us with great pleasure <br> when using this crazy feature.
-    </p>
+  </head>
+  <body>
+    <div x-data="testimonialSlider()" class="max-w-screen-xl mx-auto lg:py-16">
+      <h2
+        class="mb-4 text-3xl font-extrabold leading-tight tracking-tight text-center text-gray-900 md:text-4xl"
+      >
+        Trusted by Thousands of <br />
+        Happy Customers
+      </h2>
+      <p class="font-thin text-center opacity-50 sm:text-xl/relaxed">
+        These are the stories of our customers who have joined us with great
+        pleasure <br />
+        when using this crazy feature.
+      </p>
 
-    <!-- Kontainer untuk kartu -->
-    <div class="flex mt-8 overflow-hidden">
-        <div class="flex gap-8 transition-transform duration-300" :style="`transform: translateX(-${activeIndex * 100}%)`">
-            <!-- Loop untuk membuat kartu -->
-            <template x-for="(item, index) in items" :key="index">
-                <div class="flex-none w-full p-4 lg:w-1/3">
-                    <div class="p-4 bg-white rounded-md shadow-md h-52 w-96">
-                        <div class="flex justify-between">
-                            <div class="flex items-center justify-center">
-                                <img :src="item.img" alt="" class="w-12 h-12 rounded-full">
-                                <div class="px-4 text-center">
-                                    <h3 class="text-lg font-semibold" x-text="item.name"></h3>
-                                    <p class="text-sm font-thin" x-text="item.location"></p>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-center gap-2">
-                                <span class="text-lg" x-text="item.rating"></span>
-                                <i class="text-yellow-500 text-md ph-fill ph-star"></i>
-                            </div>
-                        </div>
-                        <p class="mt-4" x-text="item.desc"></p>
+      <div class="mt-8 overflow-hidden">
+        <div
+          class="flex transition-transform duration-300"
+          :style="`transform: translateX(-${currentIndex * 25}%);`"
+        >
+          <template x-for="(card, index) in testimonials" :key="index">
+            <!-- Card Testimonial Start -->
+            <div class="flex w-full gap-4 p-4 sm:w-full md:w-1/3 lg:w-1/3">
+              <div
+                class="p-4 bg-white rounded-md shadow-md h-52 w-72"
+                :class="{'border-2 border-[#F53838] border-opacity-50': currentIndex === index}"
+              >
+                <div class="flex justify-between">
+                  <div class="flex items-center justify-center">
+                    <img
+                      alt=""
+                      :src="card.avatar"
+                      class="w-12 h-12 rounded-full"
+                    />
+                    <div class="px-4 text-left">
+                      <h3 class="text-lg font-semibold" x-text="card.name"></h3>
+                      <p class="text-sm font-thin" x-text="card.profession"></p>
                     </div>
+                  </div>
+                  <div class="flex items-center justify-center gap-2">
+                    <span class="text-lg" x-text="card.rating"></span>
+                    <i class="text-yellow-500 text-md ph-fill ph-star"></i>
+                  </div>
                 </div>
-            </template>
+                <p class="mt-4" x-text="card.testimonial"></p>
+              </div>
+            </div>
+            <!-- Card Testimonial End -->
+          </template>
         </div>
-    </div>
+      </div>
 
-    <!-- Tombol untuk navigasi -->
-    <div class="flex w-full mx-auto lg:justify-between sm:justify-center sm:items-center md:justify-between">
-        <div class="flex sm:flex-col lg:flex-row md:flex-row lg:justify-between md:justify-between sm:mx-auto">
+      <div class="flex flex-col">
+        <!-- Indicators -->
+        <div class="flex justify-center mt-8">
+          <template x-for="(card, index) in testimonials" :key="index">
+            <span
+              class="w-2 h-2 mx-1 transition-all duration-300 rounded-full cursor-pointer"
+              :class="currentIndex === index ? 'bg-[#F53838] w-8' : 'bg-gray-300'"
+              @click="currentIndex = index"
+            >
+            </span>
+          </template>
+        </div>
+        <!-- Navigation buttons -->
+        <div
+          class="flex w-full mx-auto lg:justify-between sm:justify-center sm:items-center md:justify-between"
+        >
+          <div class="mx-auto">
             <div class="flex justify-center px-4 space-x-2">
-                <template x-for="(index) in Math.ceil(items.length / 3)" :key="index">
-                    <span :class="activeIndex === index ? 'h-2 w-8 bg-[#F53838] rounded-full' : 'h-2 w-2 bg-gray-300 rounded-full'" class="transition-all duration-300"></span>
-                </template>
+              <span class="transition-all duration-300"></span>
             </div>
             <div class="flex justify-center mt-4 space-x-2">
-                <a aria-label="btn-prev" href="javascript:void(0)" @click="activeIndex = (activeIndex > 0) ? activeIndex - 1 : 0" class="flex justify-center items-center text-[#F53838] border-[#F53838] border-2 bg-transparent rounded-full w-14 h-14" :disabled="activeIndex === 0">
-                    <i class="text-2xl ph ph-arrow-left"></i>
-                </a>
-                <a aria-label="btn-next" href="javascript:void(0)" @click="activeIndex = (activeIndex < Math.ceil(items.length / 3) - 1) ? activeIndex + 1 : activeIndex" class="flex justify-center items-center text-center text-white bg-[#F53838] rounded-full w-14 h-14" :disabled="activeIndex >= Math.ceil(items.length / 3) - 1">
-                    <i class="text-2xl ph ph-arrow-right"></i>
-                </a>
+              <a
+                aria-label="btn-prev"
+                href="javascript:void(0)"
+                @click="prev"
+                :class="{
+            'cursor-not-allowed opacity-50': currentIndex === 0
+          }"
+                :disabled="currentIndex === 0"
+                class="flex justify-center items-center text-[#F53838] border-[#F53838] border-2 bg-transparent rounded-full w-14 h-14"
+              >
+                <i class="text-2xl ph ph-arrow-left"></i>
+              </a>
+              <a
+                aria-label="btn-next"
+                href="javascript:void(0)"
+                @click="next"
+                :class="{
+            'cursor-not-allowed opacity-50': currentIndex === testimonials.length - 1
+          }"
+                :disabled="currentIndex === testimonials.length - 1"
+                class="flex justify-center items-center text-center text-white bg-[#F53838] rounded-full w-14 h-14"
+              >
+                <i class="text-2xl ph ph-arrow-right"></i>
+              </a>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-</body>
+  </body>
 </html>

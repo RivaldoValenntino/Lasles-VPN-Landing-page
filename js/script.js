@@ -1,45 +1,49 @@
 document.addEventListener("alpine:init", () => {
-  Alpine.data("testimonials", () => ({
-    items: [
+  Alpine.data("cardsData", () => ({
+    cards: [
       {
-        img: "assets/avatar_1.png",
-        desc: " “Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best”.",
+        name: "John Doe",
+        job: "Designer",
+        rating: 4.9,
+        review: "Wow... I am very happy to use this VPN.",
+        avatar: "assets/avatar_1.png",
       },
       {
-        img: "assets/avatar_1.png",
-        desc: " “Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best”.",
+        name: "Yessica Christy",
+        job: "Developer",
+        rating: 4.7,
+        review: "The VPN exceeded my expectations.",
+        avatar: "assets/yessica.png",
       },
       {
-        img: "assets/avatar_1.png",
-        desc: " “Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best”.",
+        name: "Kim Young",
+        job: "Manager",
+        rating: 4.8,
+        review: "Great experience so far!, I love it, I love it.",
+        avatar: "assets/kim_young.png",
       },
       {
-        img: "assets/avatar_1.png",
-        desc: " “Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best”.",
+        name: "Nancy Jewel",
+        job: "Manager",
+        rating: 4.8,
+        review: "Great experience so far!, I love it, I love it.",
+        avatar: "assets/nancy.jpeg",
       },
       {
-        img: "assets/avatar_1.png",
-        desc: " “Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best”.",
+        name: "Yeh Shuhua",
+        job: "Idol",
+        rating: 4.7,
+        review:
+          "“I like it because I like to travel far and still can connect with high speed.”.",
+        avatar: "assets/shuhua.jpeg",
       },
       {
-        img: "assets/avatar_1.png",
-        desc: " “Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best”.",
-      },
-      {
-        img: "assets/avatar_1.png",
-        desc: " “Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best”.",
-      },
-      {
-        img: "assets/avatar_1.png",
-        desc: " “Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best”.",
-      },
-      {
-        img: "assets/avatar_1.png",
-        desc: " “Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best”.",
-      },
-      {
-        img: "assets/avatar_1.png",
-        desc: " “Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best”.",
+        name: "Bae Joohyun",
+        job: "Idol",
+        rating: 4.7,
+        review:
+          "“I like it because I like to travel far and still can connect with high speed.”.",
+        avatar: "assets/Irene.jpeg",
       },
     ],
   }));
